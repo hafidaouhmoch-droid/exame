@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>امتحان النواسخ الحرفية – مصحح آليًا</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f4f8;
+        padding: 20px;
+    }
+
+    .container {
+        max-width: 900px;
+        margin: auto;
+        background-color: #ffffff;
+        padding: 30px;
+        border-radius: 15px;
+    }
+
+    h1 {
+        text-align: center;
+        color: #1e90ff;
+        font-size: 34px;
+    }
+
+    .question {
+        background-color: #f9fbff;
+        padding: 20px;
+        margin: 20px 0;
+        border-radius: 10px;
+        font-size: 22px;
+    }
+
+    .question p {
+        font-weight: bold;
+    }
+
+    label {
+        display: block;
+        margin: 8px 0;
+        cursor: pointer;
+    }
+
+    button {
+        display: block;
+        margin: 30px auto;
+        padding: 15px 30px;
+        font-size: 22px;
+        background-color: #1e90ff;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #0b65c2;
+    }
+
+    #result {
+        text-align: center;
+        font-size: 26px;
+        font-weight: bold;
+        margin-top: 30px;
+    }
+
+    @media print {
+        button {
+            display: none;
+        }
+        body {
+            background-color: white;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>📘 امتحان اللغة العربية<br>النواسخ الحرفية</h1>
+
+<form id="exam">
+
+    <!-- Question 1 -->
+    <div class="question">
+        <p>1️⃣ النواسخ الحرفية هي:</p>
+        <label><input type="radio" name="q1" value="0"> أسماء تدخل على الجملة الفعلية</label>
+        <label><input type="radio" name="q1" value="1"> حروف تدخل على الجملة الاسمية</label>
+        <label><input type="radio" name="q1" value="0"> أفعال تدخل على الجملة الاسمية</label>
+    </div>
+
+    <!-- Question 2 -->
+    <div class="question">
+        <p>2️⃣ أثر النواسخ الحرفية هو:</p>
+        <label><input type="radio" name="q2" value="1"> تنصب المبتدأ وترفع الخبر</label>
+        <label><input type="radio" name="q2" value="0"> ترفع المبتدأ وتنصب الخبر</label>
+        <label><input type="radio" name="q2" value="0"> تجزم الفعل المضارع</label>
+    </div>
+
+    <!-- Question 3 -->
+    <div class="question">
+        <p>3️⃣ أي الكلمات الآتية ناسخ حرفي؟</p>
+        <label><input type="radio" name="q3" value="0"> كان</label>
+        <label><input type="radio" name="q3" value="1"> إنَّ</label>
+        <label><input type="radio" name="q3" value="0"> كتب</label>
+    </div>
+
+    <!-- Question 4 -->
+    <div class="question">
+        <p>4️⃣ في الجملة: «إنَّ التلميذَ مجتهدٌ» اسم إنَّ هو:</p>
+        <label><input type="radio" name="q4" value="1"> التلميذَ</label>
+        <label><input type="radio" name="q4" value="0"> مجتهدٌ</label>
+        <label><input type="radio" name="q4" value="0"> إنَّ</label>
+    </div>
+
+    <!-- Question 5 -->
+    <div class="question">
+        <p>5️⃣ خبر الناسخ الحرفي يكون:</p>
+        <label><input type="radio" name="q5" value="0"> منصوبًا</label>
+        <label><input type="radio" name="q5" value="1"> مرفوعًا</label>
+        <label><input type="radio" name="q5" value="0"> مجزومًا</label>
+    </div>
+
+    <button type="button" onclick="correctExam()">📊 تصحيح الامتحان</button>
+
+</form>
+
+<div id="result"></div>
+
+<button onclick="window.print()">🖨️ حفظ كـ PDF</button>
+
+</div>
+
+<script>
+function correctExam() {
+    let score = 0;
+    const total = 5;
+
+    for (let i = 1; i <= total; i++) {
+        const answer = document.querySelector('input[name="q' + i + '"]:checked');
+        if (answer && answer.value === "1") {
+            score++;
+        }
+    }
+
+    document.getElementById("result").innerHTML =
+        "✅ نتيجتك النهائية: " + score + " / " + total;
+}
+</script>
+
+</body>
+</html>
